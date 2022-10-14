@@ -14,7 +14,7 @@ if n < 1000 and n > 0:
                     count += 1
                 if num[1] == str(dig):
                     count += 1
-            elif i <= 1000:
+            elif i < 1000:
                 if num[0] == str(dig):
                     count += 1
                 if num[1] == str(dig):
