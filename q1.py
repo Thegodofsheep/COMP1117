@@ -21,6 +21,11 @@ if n < 1000 and n > 0:
                     count += 1
                 if num[2] == str(dig):
                     count += 1
+    else:
+        print("Invalid required digit")
+        quit()
 else:
+    print("Invalid number")
     quit()
+
 print(count)
