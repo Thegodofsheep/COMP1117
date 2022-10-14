@@ -1,1 +1,1 @@
-print(str("apple"))
+print(-1 % 26)
