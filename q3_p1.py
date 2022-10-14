@@ -5,8 +5,8 @@ if mode != 1 and mode != 2 and mode != 3:
     quit()
 #################################################################
 #PART 1
-height = int(input())
-width = int(input())
+height = int(input("h="))
+width = int(input("w="))
 
 if height <= 0:
     print("Invalid height of candles")
@@ -17,8 +17,8 @@ if width <= 0:
 
 for i in range(0,width-1):
     print("[", end='')
-print("[")
-for i in range(0, height):
-    for i in range(0,width):
-        print("[]", end="")
-        break
+print("[ ")
+
+for i in range(0,width):
+    print("[]", end="")
+    break
