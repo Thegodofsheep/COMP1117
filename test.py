@@ -1,3 +1,1 @@
-print("Hello World!")
-#testing2
-print("TEST")
+print(13%10)
