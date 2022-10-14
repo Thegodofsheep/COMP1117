@@ -1,1 +1,1 @@
-print(101%100)
+print(str("apple"))

@@ -15,7 +15,7 @@ if num < 1000 and num > 0:
                     count += 1
 
 #check num bigger or eqaul to 100 but less than 1000
-            elif i >= 100:
+            elif i < 1000:
                 check_huns = i//100
                 check_tens = check_huns % 10
                 check_ones = i % 100
