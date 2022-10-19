@@ -5,26 +5,28 @@ if mode != 1 and mode != 2 and mode != 3:
     quit()
 #################################################################
 #PART 1
-if mode == 1:
-    height_1 = int(input())
-    candles_1 = int(input())
-
-    if height_1 <= 0:
+def mode1(x, y):
+    if x <= 0:
         print("Invalid height of candles")
         quit()
-    if candles_1 <= 0:
+    if y <= 0:
         print("Invalid number of candles")
         quit()
+        
+    for i in range(0,y-1):
+        print("[ ", end='')
+    print("[ ")
 
-    if mode == 1:
-        for i in range(0,candles_1-1):
-            print("[ ", end='')
-        print("[ ")
+    for i in range (0,x):
+        for i in range(0,y-1):
+            print("[]", end="")
+        print("[]")
 
-        for i in range (0,height_1):
-            for i in range(0,candles_1-1):
-                print("[]", end="")
-            print("[]")
+if mode == 1:
+    height = int(input())
+    candles = int(input())
+    m1 = mode1(height, candles)
+    print(m1)
 #################################################################
 #PART 2
 if mode == 2:
