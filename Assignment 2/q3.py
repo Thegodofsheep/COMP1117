@@ -1,4 +1,7 @@
 #PART 0
+from os import WIFCONTINUED
+
+
 mode = int(input())
 if mode != 1 and mode != 2 and mode != 3:
     print("Invalid mode")
@@ -29,34 +32,76 @@ if mode == 1:
     print(m1)
 #################################################################
 #PART 2
-if mode == 2:
-    width_2 = int(input())
-    height_cake_2 = int(input())
-    char_2 = input()
-    fill_2 = input()
-
-    if width_2 < 3:
+def mode2(a,b,c,d):
+    if a < 3:
         print("Invalid width of the cake")
         quit()
-    if height_cake_2 < 3:
+    if b < 3:
         print("Invalid height of the cake")
         quit()
 
-    for i in range(0,width_2-1):
-        print(char_2, end="")
-    print(char_2)
+    for i in range(0,a-1):
+        print(c, end="")
+    print(c)
 
-    for i in range(0,height_cake_2-2):
-        print(char_2,end="")
-        for i in range(0,width_2-2):
-            print(fill_2,end="")
-        print(char_2)
+    for i in range(0,b-2):
+        print(c,end="")
+        for i in range(0,a-2):
+            print(d,end="")
+        print(c)
 
-    for i in range(0,width_2-1):
-        print(char_2, end="")
-    print(char_2)
+    for i in range(0,a-1):
+        print(c, end="")
+    print(c)
+    
+if mode == 2:
+    width = int(input())
+    height_2 = int(input())
+    char = input()
+    fill = input()
+    m2 = mode2(width,height_2,char,fill)
+    print(m2)
+
 #################################################################
 #PART 3
+def mode3(a,b,c,d,e,f):
+    if a < 0:
+        print("Invalid height of candles")
+        quit()
+    if b % 2 != 0 or b < 4:
+        print("Invalid width of the cake")
+        quit()
+    if c < 3:
+        print("Invalid height of the cake")
+        quit()  
+    if f <= 0:
+        print("Invalid number of candles")
+        quit()
+
+    for i in range(0,f-1):
+        print(" [", end='')
+    print(" [  ")
+
+    for i in range (0,a):
+        print(" ",end="")
+        for i in range(0,f-1):
+            print("[]", end="")
+        print("[] ")
+
+    for i in range(0,b-1):
+        print(d, end="")
+    print(d)
+
+    for i in range(0,c-2):
+        print(d,end="")
+        for i in range(0,b-2):
+            print(e,end="")
+        print(d)
+
+    for i in range(0,b-1):
+        print(d, end="")
+    print(d)
+
 if mode == 3:
     height_3 = int(input())
     width_3 = int(input())
@@ -64,40 +109,5 @@ if mode == 3:
     char_3 = input()
     fill_3 = input()
     candles_3 = int((width_3-2)/2)
-
-    if height_3 < 0:
-        print("Invalid height of candles")
-        quit()
-    if width_3 % 2 != 0 or width_3 < 4:
-        print("Invalid width of the cake")
-        quit()
-    if height_cake_3 < 3:
-        print("Invalid height of the cake")
-        quit()  
-    if candles_3 <= 0:
-        print("Invalid number of candles")
-        quit()
-
-    for i in range(0,candles_3-1):
-        print(" [", end='')
-    print(" [  ")
-
-    for i in range (0,height_3):
-        print(" ",end="")
-        for i in range(0,candles_3-1):
-            print("[]", end="")
-        print("[] ")
-
-    for i in range(0,width_3-1):
-        print(char_3, end="")
-    print(char_3)
-
-    for i in range(0,height_cake_3-2):
-        print(char_3,end="")
-        for i in range(0,width_3-2):
-            print(fill_3,end="")
-        print(char_3)
-
-    for i in range(0,width_3-1):
-        print(char_3, end="")
-    print(char_3)
+    m3 = mode3(height_3,width_3,height_cake_3, char_3, fill_3, candles_3)
+    print(m3) 
