@@ -1,9 +1,11 @@
-import sys
 def run_one_step(step, cur, stop):
  # step: current step number
  # cur: the position of current point
 # stop: the position of stop point
  # Begin of your implementation ------             
+    if (abs(cur) > stop):
+        return 99999999999999999999999999999999999999999
+
     if (cur == stop):
         return step
     
