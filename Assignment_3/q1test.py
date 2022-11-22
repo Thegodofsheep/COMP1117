@@ -1,7 +1,6 @@
 # python program to count number of
 # steps to reach a point
 import sys
- 
 # Function to count number of steps
 # required to reach a destination
      

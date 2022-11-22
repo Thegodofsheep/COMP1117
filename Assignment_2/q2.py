@@ -1,5 +1,4 @@
 from curses.ascii import isupper
-from pickle import FALSE, TRUE
 mode = int(input())
 shift = int(input())
 text = list(input())
