@@ -1,6 +1,8 @@
 route = dict()
-num = 0
-ins = 0
+ex = 0
+num = -1
+stat_name = []
+stat_print = str()
 
 def parse_doc():
     global route
@@ -21,42 +23,55 @@ def parse_doc():
         stat_print += j
     return stat_print
 
+
 print("File to initialize the vending machine:")
 fil = open("/Users/conrad/Desktop/COMP1117/Assignment_4/"+input())
 print("Station(s):",parse_doc())
-print("tickets avalible: ",num)
-
-while num != 0:
-    print("Please choose a destination or enter 'Exit':")
-    desorext = input()
-    if desorext == "Exit":
-        print("Bye.")
-        exit()
-    else:
-        print("Please enter the number of tickets:")
-        num2buy = int(input())
-        if num2buy > num:
-            print("Error: Cannot handle your request.")
+    while num != 0:
+        desorext = input("Please choose a destination or enter 'Exit':"+"\n")
+        if desorext == "Exit":
+            print("Bye.")
             exit()
+        elif desorext != "Exit" or desorext not in route:
+            test1()
         else:
-            price = num2buy*int(route[desorext])
-            print("Destination: ",desorext,", Quantity: ",num2buy," Price: $",price,", Inserted: $",ins,".", sep="")
-            print("Please insert a coin or enter 'Cancel':")
-            pay = input()
-            ins += int(pay)
-            if ins >= price:
-                print("Dropped ticket(s). Your change: ",)
-                break
-            while pay != "Cancel":
-                print("Destination: ",desorext,", Quantity: ",num2buy," Price: $",num2buy*int(route[desorext]),", Inserted: $",ins,".", sep="")
-                print("Please insert a coin or enter 'Cancel':")
-                pay = input()
-                ins += int(pay)
-                if ins >= price:
-                    print("Dropped ticket(s). Your change: ",)
+            print("Please enter the number of tickets:")
+            num2buy = int(input())
+            if num2buy > num:
+                print("Error: Cannot handle your request.")
+                exit()
+            else:
+                price = num2buy*int(route[desorext])
+                while pay != "Cancel":
+                    print("Destination: ",desorext,", Quantity: ",num2buy," Price: $",num2buy*int(route[desorext]),", Inserted: $",ins,".", sep="")
+                    print("Please insert a coin or enter 'Cancel':")
+                    pay = input()
+                    if pay != "Cancel":
+                        ins += int(pay)
+                        ins_buf += int(pay)
+                        coin.append(pay)
+                        if ins >= price:
+                            coin.sort()
+                            for i in range(0, len(coin)):
+                                coin[i] = "$"+coin[i]
+                            num = num - num2buy
+                            print("Dropped ticket(s). Your change: ",end="")
+                            print("$",ins - price, sep="")
+                            ins = 0
+                            break
+                    else:
+                        break
+            if ins_buf == 0:
+                print("Cancelled. Returned no coin.")
+            else:
+                print("Cancelled. Returned coin(s):", coin)
+                ins_buf = 0
 
-print("Out of Service. Please enter 'Exit':")
-input()
-print("Bye")
+while ex != "Exit":
+    print("Out of Service. Please enter 'Exit':")
+    ex = input()
+    if ex == "Exit":
+        print("Bye")
+        exit()
 
 
